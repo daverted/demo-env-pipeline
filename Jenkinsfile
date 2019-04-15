@@ -25,7 +25,7 @@ pipeline {
       steps {
         OverOpsQuery(
           applicationName: 'OverOps',
-          deploymentName: 'v4.32.0',
+          deploymentName: 'v4.32.4',
           // applicationName: '${JOB_NAME}',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           serviceId: 'S37777',
