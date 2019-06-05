@@ -52,6 +52,16 @@ pipeline {
     stage('Build Status') {
       steps {
         echo "Build Status: ${currentBuild.currentResult}"
+        echo "OverOps Query Success? ${currentBuild.resultIsBetterOrEqualTo('SUCCESS')}"
+        echo "OverOps Query Unstable? ${currentBuild.resultIsWorseOrEqualTo('UNSTABLE')}"
+        script {
+          if (${currentBuild.resultIsBetterOrEqualTo('SUCCESS')) {
+            echo "Passed OverOps Quality Report"
+          }
+          if (${currentBuild.resultIsWorseOrEqualTo('UNSTABLE')) {
+            echo "Failed OverOps Quality Check"
+          }
+        }
       }
     }
     // stage('Deploy') {
