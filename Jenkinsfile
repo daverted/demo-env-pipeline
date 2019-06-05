@@ -25,7 +25,7 @@ pipeline {
       steps {
         OverOpsQuery(
           applicationName: 'OverOps',
-          deploymentName: 'v4.36.1',
+          deploymentName: 'v4.37.5',
           // applicationName: '${JOB_NAME}',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           serviceId: 'S37777',
@@ -36,7 +36,7 @@ pipeline {
           resurfacedErrors: true,
           maxErrorVolume: 0,
           maxUniqueErrors: 0,
-          criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
+          criticalExceptionTypes: 'AmazonClientException,NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           activeTimespan: '12h',
           baselineTimespan: '7d',
           minVolumeThreshold: 20,
