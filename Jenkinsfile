@@ -25,7 +25,7 @@ pipeline {
       steps {
         OverOpsQuery(
           applicationName: 'OverOps',
-          deploymentName: 'v4.33.0',
+          deploymentName: 'v4.36.1',
           // applicationName: '${JOB_NAME}',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           serviceId: 'S37777',
@@ -49,11 +49,11 @@ pipeline {
         echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
       }
     }
-    // stage('Publish') {
-    //   steps {
-    //     sh 'echo "TODO"'
-    //   }
-    // }
+    stage('Build Status') {
+      steps {
+        echo "Build Status: ${currentBuild.currentResult}"
+      }
+    }
     // stage('Deploy') {
     //   steps {
     //     sh 'echo "TODO"'
