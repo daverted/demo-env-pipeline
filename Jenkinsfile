@@ -64,6 +64,24 @@ pipeline {
         }
       }
     }
+    stage ('Publish Report') {
+      publishHTML (target: [
+        allowMissing: false,
+        alwaysLinkToLastBuild: false,
+        keepAll: true,
+        reportDir: 'OverOps',
+        reportFiles: 'index.html',
+        reportName: "OverOps Quality Report"
+      ])
+    }
+    // stage('Email report') {
+    //   emailext (
+    //     mimeType: 'text/html',
+    //     body: '${FILE,path="${BUILD_URL}OverOpsReport/"}', 
+    //     subject: 'Selenium: Job '${env.JOB_NAME}' Status: currentBuild.result', 
+    //     to: 'dave.snyder@overops.com'
+    //   )
+    // }
     // stage('Deploy') {
     //   steps {
     //     sh 'echo "TODO"'
