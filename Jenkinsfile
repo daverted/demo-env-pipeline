@@ -65,14 +65,16 @@ pipeline {
       }
     }
     stage ('Publish Report') {
-      publishHTML (target: [
-        allowMissing: false,
-        alwaysLinkToLastBuild: false,
-        keepAll: true,
-        reportDir: 'OverOps',
-        reportFiles: 'index.html',
-        reportName: "OverOps Quality Report"
-      ])
+      steps {
+        publishHTML (target: [
+          allowMissing: false,
+          alwaysLinkToLastBuild: false,
+          keepAll: true,
+          reportDir: 'OverOps',
+          reportFiles: 'index.html',
+          reportName: "OverOps Quality Report"
+        ])
+      }
     }
     // stage('Email report') {
     //   emailext (
