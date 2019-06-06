@@ -70,7 +70,7 @@ pipeline {
           allowMissing: false,
           alwaysLinkToLastBuild: false,
           keepAll: true,
-          reportDir: 'OverOps',
+          reportDir: '',
           reportFiles: 'index.html',
           reportName: "OverOps Quality Report"
         ])
