@@ -25,18 +25,18 @@ pipeline {
       steps {
         OverOpsQuery(
           // applicationName: 'OverOps',
-          deploymentName: 'v4.37.5',
+          deploymentName: 'v4.44.3',
           // applicationName: '${JOB_NAME}',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           serviceId: 'S37777',
-          // regexFilter: '"type":\\"*(Timer|Logged Warning)',
+          regexFilter: '"type":\\"*(Timer|Logged Warning|Logged Error)',
           markUnstable: true,
           printTopIssues: 10,
           newEvents: true,
           resurfacedErrors: true,
           maxErrorVolume: 0,
           maxUniqueErrors: 0,
-          criticalExceptionTypes: 'AmazonClientException,NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
+          criticalExceptionTypes: 'AmazonClientException,ResourceNotFoundException,NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           activeTimespan: '7d',
           baselineTimespan: '14d',
           minVolumeThreshold: 20,
@@ -72,7 +72,7 @@ pipeline {
           keepAll: true,
           reportDir: '',
           reportFiles: 'index.html',
-          reportName: "OverOps Quality Report"
+          reportName: "OverOpsReport"
         ])
       }
     }
